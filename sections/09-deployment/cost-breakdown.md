@@ -31,12 +31,10 @@ Estimated costs for running the quiz app in production.
 |---------|-------------|
 | Vercel Pro | $20/mo |
 | Supabase Pro | $25/mo |
-| Clerk Pro | $25/mo (or $20/mo annual), after 50K MRU |
+| Clerk | $0 at this scale (Pro is $25/mo, or $20/mo annual, above 50K MRU) |
 | Stripe | Per-transaction only |
 | OpenAI (est. 10K generations) | ~$10-50 |
-| **Total** | **~$80-120/mo** |
-
-> That total assumes you are past every free tier. At 1K users you are nowhere near Clerk's 50K MRU threshold, so Clerk is still $0 and the realistic bill is closer to **~$55-95/mo**.
+| **Total** | **~$55-95/mo** |
 
 ## Cost-Saving Tips
 

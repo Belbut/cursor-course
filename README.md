@@ -54,7 +54,6 @@ See **[SETUP.md](SETUP.md)** for the complete pre-course checklist.
 cursor-course/
 ├── README.md                    ← You are here
 ├── SETUP.md                     ← Pre-course checklist
-├── CLAUDE.md                    ← AI assistant context
 ├── cursor-explainer.html        ← Handout: "What is Cursor?" quick guide
 ├── presentation/                ← Slides and speaker notes
 │   ├── scripts.md               ← 10-section speaker notes
@@ -71,10 +70,6 @@ cursor-course/
 │   ├── 08-backend-auth-payments/
 │   ├── 09-deployment/
 │   └── 10-finishing/
-├── assets/                      ← Handout: printable cheat sheet (PDF + HTML source)
-│   ├── cursor-course-cheatsheet.pdf
-│   ├── cursor-course-cheatsheet.html
-│   └── cursor-course-cheatsheet-print.html
 ├── assets-resources/            ← Internal reference materials
 └── archive/                     ← Old course files
 ```
@@ -113,10 +108,9 @@ Browser Tab: presentation.html (slides)
 
 ## Resources
 
-### Handouts in this repo (share with students)
+### Handout in this repo (share with students)
 
 - **[Cursor Quick Guide](cursor-explainer.html)** — standalone "What is Cursor?" explainer: the four ways to work with AI, the explore‑plan‑build workflow, and tips. Open in a browser; good pre‑reading or a break‑time link.
-- **[Course Cheat Sheet (PDF)](assets/cursor-course-cheatsheet.pdf)** — printable quick reference to hand out. HTML sources live alongside it: [`assets/cursor-course-cheatsheet.html`](assets/cursor-course-cheatsheet.html) (screen) and [`assets/cursor-course-cheatsheet-print.html`](assets/cursor-course-cheatsheet-print.html) (print‑optimised).
 
 ### External docs
 

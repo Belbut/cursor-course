@@ -259,7 +259,7 @@ class: center, middle
 
 # Effective Prompting
 
-<div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: center; margin-top: 40px;">
+<div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: stretch; margin-top: 40px;">
 
 <div style="border: 2px solid #e74c3c; padding: 25px; border-radius: 15px; background-color: #fee;">
   <h3 style="color: #e74c3c;">❌ Vague</h3>
@@ -269,19 +269,20 @@ class: center, middle
   <p style="margin-top: 15px; font-size: 0.85em;">• No success criteria<br>• No direction<br>• Ambiguous goal</p>
 </div>
 
-<div style="font-size: 48px; color: #666;">→</div>
+<div style="font-size: 48px; color: #666; display: flex; align-items: center;">→</div>
 
 <div style="border: 2px solid #27ae60; padding: 25px; border-radius: 15px; background-color: #e8f5e8;">
   <h3 style="color: #27ae60;">✅ Specific</h3>
-  <code style="background: #fff; padding: 15px; display: block; border-radius: 8px; margin-top: 15px; font-size: 0.75em; line-height: 1.4;">
-@src/components/Button.tsx
-
-Refactor to:
-1. Add TypeScript props
-2. Include disabled state
-3. Add loading spinner
-4. Keyboard accessible
-  </code>
+  <div style="background: #fff; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.75em; line-height: 1.5; font-family: 'Ubuntu Mono', monospace;">
+    <div style="color: #27ae60;">@src/components/Button.tsx</div>
+    <div style="margin-top: 10px;">Refactor to:</div>
+    <ol style="margin: 6px 0 0; padding-left: 1.6em; line-height: 1.7;">
+      <li style="margin: 3px 0;">Add TypeScript props</li>
+      <li style="margin: 3px 0;">Include disabled state</li>
+      <li style="margin: 3px 0;">Add loading spinner</li>
+      <li style="margin: 3px 0;">Keyboard accessible</li>
+    </ol>
+  </div>
 </div>
 
 </div>
@@ -406,6 +407,35 @@ Refactor to:
 <p style="font-size: 14px; margin-top: 6px;">
   <sup>[1]</sup><a href="https://cursor.com/changelog/projects">Cursor Projects</a>
 </p>
+
+---
+
+# What Is a Git Worktree?
+
+<div style="background: #f6faff; padding: 18px 22px; border-radius: 12px; margin-top: 18px; text-align: center;">
+<strong>One clone, several working folders</strong> — each checked out to a different branch, all sharing the same <code>.git</code> history
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 22px;">
+
+<div style="border: 2px solid #e74c3c; padding: 20px; border-radius: 15px; background-color: #fee;">
+  <h3 style="color: #e74c3c; margin-top: 0;">Branch switching</h3>
+  <code style="background: #fff; padding: 10px; display: block; border-radius: 8px; font-size: 0.75em;">git checkout feature/auth</code>
+  <p style="margin-top: 12px; font-size: 0.8em; line-height: 1.6;">• One folder, one branch at a time<br>• Stash or commit your WIP first<br>• Reinstall / rebuild after each switch</p>
+</div>
+
+<div style="border: 2px solid #27ae60; padding: 20px; border-radius: 15px; background-color: #e8f5e8;">
+  <h3 style="color: #27ae60; margin-top: 0;">Worktrees</h3>
+  <code style="background: #fff; padding: 10px; display: block; border-radius: 8px; font-size: 0.75em;">git worktree add ../auth feature/auth</code>
+  <p style="margin-top: 12px; font-size: 0.8em; line-height: 1.6;">• Many folders, many branches, at once<br>• Nothing to stash — your files never move<br>• Each folder keeps its own build state</p>
+</div>
+
+</div>
+
+<div style="background-color: #d4edda; padding: 16px; border-radius: 12px; margin-top: 22px; text-align: center;">
+<strong>💡 Three agents → three folders → zero file collisions</strong><br>
+<span style="font-size: 0.8em;">Review each diff on its own, merge the ones you want, then <code>git worktree remove ../auth</code></span>
+</div>
 
 ---
 

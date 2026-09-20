@@ -1,6 +1,6 @@
 # Cursor AI IDE: Building Production Applications
 
-> **O'Reilly Live Training** — 6 hours, 10 sections, 56 slides (64 deck pages with incremental builds)
+> **O'Reilly Live Training** — 6 hours, 10 sections, 57 slides (65 deck pages with incremental builds)
 > Master AI-assisted development by building a full-stack AI quiz app from scratch using Cursor, MCP, and modern tooling.
 
 **Instructor:** Lucas Soares ([@EnkrateiaLucca](https://github.com/EnkrateiaLucca))

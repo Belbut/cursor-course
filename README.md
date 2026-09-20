@@ -59,6 +59,8 @@ cursor-course/
 │   ├── scripts.md               ← 10-section speaker notes
 │   ├── presentation.html
 │   └── cursor-for-modern-dev.pdf
+├── assets/                      ← Student-facing handouts
+│   └── cursor-explainer.pdf     ← Printable "What is Cursor?" handout
 ├── sections/                    ← Section-by-section content
 │   ├── 01-cursor-intro/
 │   ├── 02-explore-plan-build/
@@ -111,6 +113,7 @@ Browser Tab: presentation.html (slides)
 ### Handout in this repo (share with students)
 
 - **[Cursor Quick Guide](cursor-explainer.html)** — standalone "What is Cursor?" explainer: the four ways to work with AI, the explore‑plan‑build workflow, and tips. Open in a browser; good pre‑reading or a break‑time link.
+- **[Cursor Quick Guide (PDF)](assets/cursor-explainer.pdf)** — the same guide as a 6‑page printable handout. This is the version sent to O'Reilly for attendees.
 
 ### External docs
 

@@ -32,6 +32,19 @@
       /* Code blocks */
       .remark-code { font-size: 0.9em; }
 
+      /* Footnote citations - pinned to the bottom of the slide box, not
+         immediately after the content, so they sit on a consistent baseline. */
+      .remark-slide-content { position: relative; }
+      .footnote {
+        position: absolute;
+        bottom: 1.2em;
+        left: 2em;
+        right: 7em;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
       /* Lists */
       .remark-slide-content ul li { margin: 10px 0; }
       .remark-slide-content ol li { margin: 10px 0; }
@@ -99,7 +112,7 @@ class: center, middle
   </div>
 </div>
 
-<p style="font-size: 14px; margin-top: 12px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://cursor.com/changelog/3-0">Cursor 3 Changelog</a>
 </p>
 
@@ -173,7 +186,7 @@ class: center, middle
 <strong>💡 This framework prevents context overload and ensures quality output</strong>
 </div>
 
-<p style="font-size: 14px; margin-top: 15px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://www.youtube.com/watch?v=sb0y5B3LLUA">Cursor for Staff Engineers</a>
 </p>
 
@@ -330,7 +343,7 @@ class: center, middle
 
 </div>
 
-<p style="font-size: 14px; margin-top: 6px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://www.youtube.com/watch?v=sb0y5B3LLUA">Cursor for Staff Engineers - Rules Discussion</a>
 </p>
 
@@ -404,7 +417,7 @@ class: center, middle
 <span style="font-size: 0.8em;">Cursor now ships this as <strong>Projects</strong> (Sept 2026, beta): a coordinator agent plans and delegates to parallel subagents, each on its own cloud VM — closing your laptop doesn't stop it</span>
 </p>
 
-<p style="font-size: 14px; margin-top: 6px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://cursor.com/changelog/projects">Cursor Projects</a>
 </p>
 
@@ -520,7 +533,7 @@ class: center, middle
 
 </div>
 
-<p style="font-size: 14px; margin-top: 20px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://gitmcp.io">GitMCP</a> |
   <sup>[2]</sup><a href="https://github.com/grab/cursor-talk-to-figma-mcp">Figma MCP</a>
 </p>
@@ -597,7 +610,7 @@ class: center, middle
 
 - Reference it inside prompts: <code>'Generate the project structure for @docs/context.md '</code>
 
-<p style="font-size: 14px; margin-top: 0px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://www.youtube.com/watch?v=WZ8g6deOyAk">Building Apps with AI - Complete Workflow</a>
 </p>
 
@@ -795,7 +808,7 @@ class: center, middle
 
 </div>
 
-<p style="font-size: 14px; margin-top: 6px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://www.youtube.com/watch?v=WZ8g6deOyAk">Complete App Building Workflow</a>
 </p>
 
@@ -977,7 +990,7 @@ class: center, middle
   </div>
 </div>
 
-<p style="font-size: 14px; margin-top: 20px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://cursor.com/docs/cookbook/mermaid-diagrams">Cursor Cookbook - Mermaid Diagrams</a>
 </p>
 
@@ -1027,7 +1040,7 @@ create a matching React component with Tailwind.
 
 </div>
 
-<p style="font-size: 14px; margin-top: 20px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://github.com/grab/cursor-talk-to-figma-mcp">Cursor Talk to Figma MCP</a>
 </p>
 
@@ -1337,7 +1350,7 @@ class: center, middle
 
 </div>
 
-<p style="font-size: 14px; margin-top: 6px;">
+<p class="footnote">
   <sup>[1]</sup><a href="https://www.youtube.com/watch?v=sb0y5B3LLUA">Automating PR Feedback Workflow</a> |
   <sup>[2]</sup><a href="https://cursor.com/changelog">Cursor Changelog—/review</a>
 </p>

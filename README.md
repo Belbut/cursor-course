@@ -1,6 +1,6 @@
 # Cursor AI IDE: Building Production Applications
 
-> **O'Reilly Live Training** — 6 hours, 10 sections, 62 slides
+> **O'Reilly Live Training** — 6 hours, 10 sections, 56 slides (64 deck pages with incremental builds)
 > Master AI-assisted development by building a full-stack AI quiz app from scratch using Cursor, MCP, and modern tooling.
 
 **Instructor:** Lucas Soares ([@EnkrateiaLucca](https://github.com/EnkrateiaLucca))
@@ -55,6 +55,7 @@ cursor-course/
 ├── README.md                    ← You are here
 ├── SETUP.md                     ← Pre-course checklist
 ├── CLAUDE.md                    ← AI assistant context
+├── cursor-explainer.html        ← Handout: "What is Cursor?" quick guide
 ├── presentation/                ← Slides and speaker notes
 │   ├── scripts.md               ← 10-section speaker notes
 │   ├── presentation.html
@@ -70,6 +71,10 @@ cursor-course/
 │   ├── 08-backend-auth-payments/
 │   ├── 09-deployment/
 │   └── 10-finishing/
+├── assets/                      ← Handout: printable cheat sheet (PDF + HTML source)
+│   ├── cursor-course-cheatsheet.pdf
+│   ├── cursor-course-cheatsheet.html
+│   └── cursor-course-cheatsheet-print.html
 ├── assets-resources/            ← Internal reference materials
 └── archive/                     ← Old course files
 ```
@@ -107,6 +112,13 @@ Browser Tab: presentation.html (slides)
 ---
 
 ## Resources
+
+### Handouts in this repo (share with students)
+
+- **[Cursor Quick Guide](cursor-explainer.html)** — standalone "What is Cursor?" explainer: the four ways to work with AI, the explore‑plan‑build workflow, and tips. Open in a browser; good pre‑reading or a break‑time link.
+- **[Course Cheat Sheet (PDF)](assets/cursor-course-cheatsheet.pdf)** — printable quick reference to hand out. HTML sources live alongside it: [`assets/cursor-course-cheatsheet.html`](assets/cursor-course-cheatsheet.html) (screen) and [`assets/cursor-course-cheatsheet-print.html`](assets/cursor-course-cheatsheet-print.html) (print‑optimised).
+
+### External docs
 
 - [Cursor Docs](https://docs.cursor.com/)
 - [McKay's App Template](https://github.com/mckaywrigley/mckays-app-template)

@@ -60,6 +60,8 @@ cursor-course/
 │   ├── presentation.html
 │   └── cursor-for-modern-dev.pdf
 ├── assets/                      ← Student-facing handouts
+│   ├── cursor-course-cheatsheet.html ← Course cheatsheet (source)
+│   ├── cursor-course-cheatsheet.pdf  ← Printable course cheatsheet
 │   └── cursor-explainer.pdf     ← Printable "What is Cursor?" handout
 ├── sections/                    ← Section-by-section content
 │   ├── 01-cursor-intro/
@@ -110,8 +112,9 @@ Browser Tab: presentation.html (slides)
 
 ## Resources
 
-### Handout in this repo (share with students)
+### Handouts in this repo (share with students)
 
+- **[Course Cheatsheet (PDF)](assets/cursor-course-cheatsheet.pdf)** — 4‑page printable quick reference for the whole course: Cursor modes and shortcuts, @ symbols, project rules, MCP, the build workflow, env vars, the production checklist and free‑tier limits. Source: [HTML](assets/cursor-course-cheatsheet.html).
 - **[Cursor Quick Guide](cursor-explainer.html)** — standalone "What is Cursor?" explainer: the four ways to work with AI, the explore‑plan‑build workflow, and tips. Open in a browser; good pre‑reading or a break‑time link.
 - **[Cursor Quick Guide (PDF)](assets/cursor-explainer.pdf)** — the same guide as a 6‑page printable handout. This is the version sent to O'Reilly for attendees.
 

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor Course Cheatsheet</title>
+<style>
+  /* Cursor course cheatsheet — print-first, A4, built on the pdf-handout modular layout */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+    @top-left { content: none; }
+    @top-center { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right {
+      content: "Cursor course cheatsheet · " counter(page) " / " counter(pages);
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 7pt;
+      color: #777;
+    }
+  }
+
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 8.6pt;
+    line-height: 1.38;
+    color: #000;
+    background: #fff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 12mm;
+  }
+
+  /* Header */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10pt;
+    padding-bottom: 6pt;
+    margin-bottom: 7pt;
+    border-bottom: 3px solid #000;
+  }
+  .page-header .kicker {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2pt;
+    color: #555;
+    margin-bottom: 2pt;
+  }
+  .page-header h1 {
+    font-size: 16.5pt;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .page-header .subtitle { font-size: 9pt; color: #333; margin-top: 2pt; }
+  .page-header .meta {
+    text-align: right;
+    font-size: 7.8pt;
+    color: #444;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  /* Stack strip */
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3pt;
+    margin-bottom: 4pt;
+  }
+  .stack .label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    padding: 1.5pt 0;
+    margin-right: 3pt;
+  }
+  .stack .chip {
+    background: #000;
+    color: #fff;
+    font-size: 7.3pt;
+    font-weight: 600;
+    padding: 1.5pt 5pt;
+  }
+
+  /* Section bars */
+  .section-title {
+    font-size: 9.6pt;
+    font-weight: 700;
+    margin: 9pt 0 5pt 0;
+    padding: 3.5pt 7pt;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.7pt;
+    break-after: avoid;
+  }
+  .section-title .num {
+    background: #fff;
+    color: #000;
+    padding: 0 4pt;
+    margin-right: 6pt;
+  }
+  .section-title .aside {
+    float: right;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 7.8pt;
+    color: #ddd;
+    padding-top: 1pt;
+  }
+
+  /* Grids */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; margin-bottom: 6pt; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; margin-bottom: 6pt; }
+
+  /* Cards */
+  .card, .card-light {
+    border: 1.5px solid #000;
+    padding: 6pt 7pt;
+    background: #fff;
+    break-inside: avoid;
+  }
+  .card-light { background: #f6f6f6; }
+  .card-title {
+    font-size: 9pt;
+    font-weight: 700;
+    margin-bottom: 4pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid #bbb;
+  }
+  .card ul, .card-light ul, .card ol, .card-light ol { margin-left: 11pt; }
+  .card li, .card-light li { margin-bottom: 1.5pt; }
+  .card p, .card-light p { margin-bottom: 3pt; }
+  .muted { color: #555; }
+
+  /* Tables */
+  .table-card {
+    border: 1.5px solid #000;
+    background: #fff;
+    break-inside: avoid;
+  }
+  .table-card-header {
+    background: #000;
+    color: #fff;
+    padding: 3pt 7pt;
+    font-weight: 700;
+    font-size: 8.6pt;
+  }
+  .table-card table { width: 100%; border-collapse: collapse; font-size: 8pt; }
+  .table-card th {
+    background: #eee;
+    text-align: left;
+    font-weight: 700;
+    padding: 3pt 6pt;
+    border-bottom: 1.5px solid #000;
+  }
+  .table-card td {
+    padding: 2.6pt 6pt;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  .table-card tr:last-child td { border-bottom: none; }
+
+  /* Code */
+  code {
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 7.9pt;
+    background: #eee;
+    padding: 0 2pt;
+  }
+  .code-card { border: 1.5px solid #000; background: #fff; break-inside: avoid; }
+  .code-card-header {
+    background: #333;
+    color: #fff;
+    padding: 3pt 7pt;
+    font-weight: 700;
+    font-size: 8pt;
+  }
+  .code-card pre, pre {
+    margin: 0;
+    padding: 5pt 7pt;
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 7.4pt;
+    line-height: 1.32;
+    background: #f7f7f7;
+    overflow: hidden;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  pre code { background: none; padding: 0; font-size: inherit; white-space: pre-wrap; }
+
+  /* Steps */
+  .steps { display: flex; gap: 5pt; margin-bottom: 6pt; break-inside: avoid; }
+  .step {
+    flex: 1;
+    border: 1.5px solid #000;
+    padding: 5pt 6pt;
+    background: #fff;
+  }
+  .step-head { display: flex; align-items: center; gap: 5pt; margin-bottom: 3pt; }
+  .step-num {
+    background: #000;
+    color: #fff;
+    width: 14pt;
+    height: 14pt;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 8pt;
+    flex: none;
+  }
+  .step-title { font-weight: 700; font-size: 8.8pt; text-transform: uppercase; letter-spacing: 0.4pt; }
+  .step-body { font-size: 8pt; }
+
+  /* Callouts */
+  .strip {
+    background: #f0f0f0;
+    border-left: 4px solid #000;
+    padding: 4pt 7pt;
+    margin-bottom: 6pt;
+    font-size: 8.3pt;
+    break-inside: avoid;
+  }
+  .key-points {
+    border: 2.5px solid #000;
+    background: #f6f6f6;
+    padding: 7pt 9pt;
+    margin-top: 8pt;
+    break-inside: avoid;
+  }
+  .key-points-title {
+    font-weight: 700;
+    font-size: 9.6pt;
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    margin-bottom: 4pt;
+  }
+  .key-points ol { margin-left: 13pt; columns: 2; column-gap: 16pt; }
+  .key-points li { margin-bottom: 2.5pt; break-inside: avoid; }
+
+  footer {
+    margin-top: 8pt;
+    padding-top: 5pt;
+    border-top: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.2pt;
+    color: #555;
+  }
+
+  a { color: #000; text-decoration: none; }
+  strong { font-weight: 700; }
+
+  @media print {
+    body { padding: 0; margin: 0; }
+    .card, .card-light, .table-card, .code-card, .steps, .strip, .key-points { break-inside: avoid; }
+    .section-title { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<div class="page-header">
+  <div>
+    <div class="kicker">Course cheatsheet · O'Reilly Live Training</div>
+    <h1>Rapidly Build and Deploy a Full-Stack App with Cursor</h1>
+    <div class="subtitle">Advanced AI-assisted SaaS application development</div>
+  </div>
+  <div class="meta">
+    Lucas Soares<br>
+    September 2026<br>
+    Cursor 3
+  </div>
+</div>
+
+<div class="stack">
+  <span class="label">Demo stack</span>
+  <span class="chip">Next.js 15+ App Router</span>
+  <span class="chip">TypeScript</span>
+  <span class="chip">Tailwind + shadcn/ui</span>
+  <span class="chip">Supabase + Drizzle</span>
+  <span class="chip">Clerk</span>
+  <span class="chip">Stripe</span>
+  <span class="chip">Anthropic API · claude-sonnet-5</span>
+  <span class="chip">Vitest + Playwright</span>
+  <span class="chip">Vercel</span>
+</div>
+
+<!-- ================= PART 1 ================= -->
+<div class="section-title"><span class="num">1</span>Cursor &amp; Context Management<span class="aside">repo: sections 01–04</span></div>
+
+<div class="grid-2">
+  <div class="table-card">
+    <div class="table-card-header">Four ways to work with the AI</div>
+    <table>
+      <tr><th>Mode</th><th>Shortcut</th><th>Use it for</th></tr>
+      <tr><td><strong>Chat</strong></td><td><code>Cmd+L</code></td><td>Explore, explain, quick Q&amp;A; multi-tab, context checkpoints</td></tr>
+      <tr><td><strong>Agent</strong></td><td><code>Cmd+I</code></td><td>Multi-file edits, autonomous execution, plan + build</td></tr>
+      <tr><td><strong>Inline Edit</strong></td><td><code>Cmd+K</code></td><td>In-place change from natural language, stay in flow</td></tr>
+      <tr><td><strong>Tab</strong></td><td><code>Tab</code></td><td>Multi-line, context-aware predictions</td></tr>
+    </table>
+  </div>
+  <div class="card-light">
+    <div class="card-title">What's new in Cursor 3</div>
+    <ul>
+      <li><strong>Composer 2.5</strong> — Standard + Fast tiers, an iteration over Composer 2</li>
+      <li><strong>Agents Window</strong> — parallel agents across local, worktree, cloud &amp; SSH</li>
+      <li><strong>Bugbot</strong> — automated PR review on Composer 2.5, ~90-second reviews</li>
+      <li><strong>Projects</strong> (beta, Sept 2026) — a coordinator agent delegates to parallel subagents, each on its own cloud VM; closing your laptop doesn't stop it</li>
+    </ul>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><span class="step-title">Explore</span></div>
+    <div class="step-body">Share context, identify the files involved, discuss options. No code yet.</div>
+  </div>
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><span class="step-title">Plan</span></div>
+    <div class="step-body">Step-by-step plan as a Markdown checklist; break the work into small tasks.</div>
+  </div>
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><span class="step-title">Build</span></div>
+    <div class="step-body">Execute iteratively, review each step, commit regularly.</div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="table-card">
+    <div class="table-card-header">@ symbols — your context navigator</div>
+    <table>
+      <tr><td><code>@file</code></td><td><code>@src/components/Header.tsx</code></td><td>one specific file</td></tr>
+      <tr><td><code>@folder</code></td><td><code>@src/utils/</code></td><td>a whole directory</td></tr>
+      <tr><td><code>@codebase</code></td><td><code>@codebase "authentication"</code></td><td>semantic search</td></tr>
+      <tr><td><code>@docs</code></td><td><code>@docs "React hooks"</code></td><td>query documentation</td></tr>
+      <tr><td><code>@git</code></td><td><code>@git "last commit"</code></td><td>git history</td></tr>
+      <tr><td><code>@branch</code></td><td><code>@branch feature/new-auth</code></td><td>another branch</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Context management</div>
+    <ul>
+      <li>Context windows are fixed (128k–1M tokens), and comprehension ≠ token count</li>
+      <li>Poor context → hallucinations. More context is not better: curate it</li>
+      <li>Use @-mentions for precision; start new chats often</li>
+      <li>Keep noise out of the index with <code>.cursorignore</code></li>
+      <li><strong>Prompt the diff:</strong> current state → desired state, with success criteria. "Make this better" has none</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Project rules — <code>.cursor/rules/</code></div>
+    <ul>
+      <li><strong>Always Apply</strong> — every session, automatically</li>
+      <li><strong>Apply Intelligently</strong> — the AI decides when it's relevant (recommended)</li>
+      <li><strong>Apply to Specific Files</strong> — pattern match, e.g. <code>*.test.ts</code></li>
+      <li><strong>Apply Manually</strong> — only when you @-mention it</li>
+    </ul>
+    <p class="muted" style="margin-top:3pt">Use for recurring mistakes, security patterns, team consistency. Keep each under 500 lines. Better context beats more rules. <code>AGENTS.md</code> (Cursor) and <code>CLAUDE.md</code> (Claude Code) carry project-level context.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Parallel agents on git worktrees</div>
+    <p>One clone, several working folders, each on its own branch, all sharing one <code>.git</code> history. Three agents → three folders → zero file collisions.</p>
+    <pre>git worktree add ../auth feature/auth
+# agent works in ../auth; review its diff
+git worktree remove ../auth   # after merging</pre>
+    <p class="muted" style="margin-top:3pt">vs. <code>git checkout</code>: one folder, one branch at a time; stash first, rebuild after each switch.</p>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">MCP — Model Context Protocol ("USB for AI")</div>
+    <p>An open protocol connecting the AI to tools and data. A server exposes <strong>Tools</strong> (functions the AI runs), <strong>Prompts</strong> (templated workflows) and <strong>Resources</strong> (structured data).</p>
+    <ul>
+      <li><strong>GitHub</strong> — create PRs, review code, manage issues</li>
+      <li><strong>Figma</strong> — extract design tokens, generate components</li>
+      <li><strong>GitMCP</strong> — any repo as context: swap <code>github.com</code> → <code>gitmcp.io</code></li>
+      <li><strong>Databases</strong> — query and inspect PostgreSQL / SQLite</li>
+      <li><strong>Playwright</strong> — the AI drives and sees your running app</li>
+    </ul>
+  </div>
+  <div class="code-card">
+    <div class="code-card-header">MCP config — GitMCP for the Next.js docs</div>
+    <pre>{
+  "mcpServers": {
+    "nextjs-docs": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote",
+               "https://gitmcp.io/vercel/next.js"]
+    }
+  }
+}</pre>
+    <div style="padding:4pt 7pt; font-size:7.8pt;" class="muted">Project config lives in <code>.cursor/mcp.json</code>. More examples: <code>sections/04-mcp-and-tooling/mcp-config-examples/</code></div>
+  </div>
+</div>
+
+<!-- ================= PART 2 ================= -->
+<div class="section-title"><span class="num">2</span>Building Your First Full App<span class="aside">repo: sections 02, 05</span></div>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><span class="step-title">Describe</span></div>
+    <div class="step-body">Problem, users and features in plain English.</div>
+  </div>
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><span class="step-title">Define</span></div>
+    <div class="step-body">Tech stack, database, auth, deployment.</div>
+  </div>
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><span class="step-title">Generate</span></div>
+    <div class="step-body">Let Cursor scaffold everything from the context file.</div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="code-card">
+    <div class="code-card-header">docs/context.md — the project's north star</div>
+    <pre># DeepWork AI - Focus Productivity App
+## Problem
+Developers struggle with multitasking and distractions.
+## Users
+Software engineers, designers, product managers
+## Core Features
+1. Task management with priority levels
+2. Focus timer for single-task concentration
+3. AI chat to add tasks via natural language
+## Tech Stack
+Next.js 15+ (App Router), TypeScript, Tailwind,
+Supabase (database + auth), Vercel
+## Database Schema
+[Let Cursor generate based on features]</pre>
+    <div style="padding:4pt 7pt; font-size:7.8pt;">Then: <code>Generate the project structure for @docs/context.md</code></div>
+  </div>
+  <div>
+    <div class="card" style="margin-bottom:6pt">
+      <div class="card-title">Two-stage workflow</div>
+      <p><strong>1. ChatGPT / Claude / Gemini — plan:</strong> brainstorm features, structure ideas, write <code>context.md</code>, plan the architecture.</p>
+      <p><strong>2. Cursor — implement:</strong> generate code, multi-file operations, debug errors, refactor.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Iterative development loop</div>
+      <ol>
+        <li>Generate code with Agent</li>
+        <li>Run the app: <code>npm run dev</code></li>
+        <li>Copy the error message into chat</li>
+        <li>Let Cursor fix it, then review the change</li>
+        <li><strong>Commit</strong> the working state with git</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Supabase backend in three moves</div>
+    <ol>
+      <li>Create a project at supabase.com; copy the API URL and anon key</li>
+      <li>Add <code>NEXT_PUBLIC_SUPABASE_URL</code> and <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to <code>.env.local</code></li>
+      <li>Prompt: <code>@docs/context.md</code> + "install the Supabase client and create the schema for tasks with title, description, priority, deadline, completed, user_id"</li>
+    </ol>
+    <p class="muted" style="margin-top:3pt">Cursor generates the SQL migrations and RLS policies. Work component by component and review each before moving on.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Testing with AI</div>
+    <ul>
+      <li><strong>TDD:</strong> write the test first (you define the behaviour), let the AI implement</li>
+      <li>AI is good at edge cases you'd miss</li>
+      <li>Keep the pyramid: many unit tests, fewer E2E</li>
+      <li>Layers: component → integration → E2E (Vitest + Playwright)</li>
+    </ul>
+    <pre style="margin-top:4pt">@src/components/TaskCard.tsx
+Create a complete test suite. Include rendering,
+user interaction, edge case and accessibility tests.</pre>
+  </div>
+</div>
+
+<!-- ================= PART 3 ================= -->
+<div class="section-title"><span class="num">3</span>Advanced App Development &amp; Architecture<span class="aside">repo: section 07</span></div>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="card-title">Atomic design</div>
+    <p><strong>Atoms</strong> Button, Input → <strong>Molecules</strong> SearchBar → <strong>Organisms</strong> Header → <strong>Templates</strong> layouts → <strong>Pages</strong> full views</p>
+  </div>
+  <div class="card">
+    <div class="card-title">State management</div>
+    <ul>
+      <li>Local — <code>useState</code></li>
+      <li>Global client — Zustand</li>
+      <li>Server — React Query</li>
+      <li>URL — <code>searchParams</code></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Hooks &amp; performance</div>
+    <ul>
+      <li>Custom hooks: single responsibility, named exports, typed</li>
+      <li><code>React.memo</code>, <code>useMemo</code>, <code>useCallback</code>, code splitting</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Architecture diagrams with Mermaid</div>
+    <pre>Create a Mermaid diagram showing the data flow in our quiz app:
+user selects topic → API generates questions →
+questions shown one at a time → answers stored in
+Supabase → results calculated and shown</pre>
+    <p style="margin-top:4pt"><code>flowchart</code> logic · <code>sequenceDiagram</code> interactions · <code>classDiagram</code> data structures. Start small, layer upward, show multiple perspectives.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Figma MCP → React</div>
+    <p>Design tokens, component specs and typography in; pixel-accurate, responsive Tailwind components out.</p>
+    <pre>@figma file:quiz-app-designs
+Generate the QuestionCard component matching the
+Figma design. Extract all design tokens (colors,
+spacing, shadows) and create a matching React
+component with Tailwind.</pre>
+  </div>
+</div>
+
+<!-- ================= PART 4 ================= -->
+<div class="section-title"><span class="num">4</span>Real-World Full-Stack Application<span class="aside">repo: sections 05, 08</span></div>
+
+<div class="grid-2">
+  <div class="code-card">
+    <div class="code-card-header">Prompt — a complete REST API</div>
+    <pre>Create a complete REST API for our quiz app:
+- POST /api/quiz/generate       create new quiz
+- GET  /api/quiz/[id]           get quiz by ID
+- POST /api/quiz/[id]/answer    submit answer
+- GET  /api/quiz/[id]/results   final results
+- GET  /api/quiz/history        user's past quizzes
+Include: authentication, validation (Zod), error
+handling, rate limiting, API documentation comments</pre>
+  </div>
+  <div>
+    <div class="card" style="margin-bottom:6pt">
+      <div class="card-title">Database optimization</div>
+      <p><strong>Indexes</strong> speed up queries · <strong>JOINs</strong> cut round trips · <strong>Pagination</strong> limits results · <strong>Caching</strong> via a Redis layer · <strong>Connection pooling</strong> via Supavisor</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Optimistic updates — the app feels instant</div>
+      <ol>
+        <li>Update the UI immediately</li>
+        <li>Send the request to the server</li>
+        <li>Error → roll the UI back; success → keep it</li>
+      </ol>
+      <p class="muted" style="margin-top:2pt">Zustand for quiz state · Supabase subscriptions for real-time sync</p>
+    </div>
+  </div>
+</div>
+
+<div class="table-card" style="margin-bottom:6pt">
+  <div class="table-card-header">Environment variables (<code style="background:#333;color:#fff">.env.local</code>) — never commit this file</div>
+  <table>
+    <tr><th>Service</th><th>Variables</th><th>Where to find them</th></tr>
+    <tr><td>Supabase</td><td><code>DATABASE_URL</code> · <code>NEXT_PUBLIC_SUPABASE_URL</code> · <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code></td><td>Settings → Database / API</td></tr>
+    <tr><td>Clerk</td><td><code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> · <code>CLERK_SECRET_KEY</code></td><td>Clerk Dashboard → API Keys</td></tr>
+    <tr><td>Stripe</td><td><code>STRIPE_SECRET_KEY</code> · <code>NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY</code> · <code>STRIPE_WEBHOOK_SECRET</code></td><td>Developers → API Keys / Webhooks</td></tr>
+    <tr><td>AI model</td><td><code>ANTHROPIC_API_KEY</code>, or <code>OPENAI_API_KEY</code> / <code>DEEPSEEK_API_KEY</code></td><td>Provider console → API Keys</td></tr>
+  </table>
+</div>
+
+<!-- ================= PART 5 ================= -->
+<div class="section-title"><span class="num">5</span>Deployment, Testing &amp; Production<span class="aside">repo: sections 06, 09</span></div>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Ship with Vercel</div>
+    <p><strong>Zero config</strong> with automatic optimizations · <strong>Edge network</strong> global CDN · <strong>Instant rollback</strong> one-click revert.</p>
+    <p style="margin-top:3pt"><strong>CI/CD with GitHub Actions</strong> — ask Cursor to generate it:</p>
+    <ul>
+      <li><strong>Every PR:</strong> type check → ESLint → unit + integration tests → build → Vercel preview deploy</li>
+      <li><strong>Merge to main:</strong> all of the above + E2E tests + production deploy</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">PR feedback, fast</div>
+    <ol>
+      <li><strong>Screenshot</strong> the PR comments</li>
+      <li>Drag into Cursor and <strong>generate a plan</strong></li>
+      <li><strong>Execute</strong> the fixes one by one</li>
+    </ol>
+    <p style="margin-top:3pt">Even faster: run <code>/review</code> (<code>/review-bugbot</code>, <code>/review-security</code>) before you push. Bugbot integrates with GitHub and GitLab PRs.</p>
+  </div>
+</div>
+
+<div class="table-card" style="margin-bottom:6pt">
+  <div class="table-card-header">Production readiness checklist</div>
+  <table>
+    <tr><th style="width:22%">Security</th><th style="width:26%">Performance</th><th style="width:24%">Code quality</th><th>Monitoring &amp; recovery</th></tr>
+    <tr>
+      <td>Env vars secured<br>SSL + CORS configured<br>Rate limiting enabled<br>Dependency &amp; secret scanning</td>
+      <td>CDN + edge caching<br>Image optimization<br>Code splitting<br>Database indexes</td>
+      <td>Strict TypeScript<br>ESLint + a11y checks<br>80% test coverage</td>
+      <td>Error tracking (Sentry)<br>Uptime + analytics<br>Automated backups<br>Rollback strategy</td>
+    </tr>
+  </table>
+</div>
+
+<div class="grid-2">
+  <div class="table-card">
+    <div class="table-card-header">Free tiers (what the demo runs on)</div>
+    <table>
+      <tr><td><strong>Vercel</strong> Hobby</td><td>100 GB fast data transfer/mo, 1M edge requests/mo</td></tr>
+      <tr><td><strong>Supabase</strong> Free</td><td>500 MB database, 1 GB file storage, 50K monthly active users</td></tr>
+      <tr><td><strong>Clerk</strong> Free</td><td>50,000 monthly retained users (MRU); a signup counts only once it returns 24h+ later</td></tr>
+      <tr><td><strong>Stripe</strong></td><td>No monthly fee; 2.9% + 30¢ per transaction</td></tr>
+    </table>
+  </div>
+  <div class="table-card">
+    <div class="table-card-header">When you outgrow them</div>
+    <table>
+      <tr><td>Vercel Pro</td><td>$20/mo</td></tr>
+      <tr><td>Supabase Pro</td><td>$25/mo</td></tr>
+      <tr><td>Clerk Pro</td><td>$25/mo ($20/mo annual), only above 50K MRU</td></tr>
+      <tr><td>Cheaper model tier</td><td><code>gpt-5.6-luna</code> ~$0.20 / 1M input tokens where quality allows</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="table-card">
+    <div class="table-card-header">Troubleshooting — quick fixes</div>
+    <table>
+      <tr><td>AI output is poor</td><td>Cut context, sharpen the prompt, check you're in the right mode</td></tr>
+      <tr><td>Context window full</td><td>New chat tab; summarize progress and hand it off</td></tr>
+      <tr><td><code>useState</code> / event handler error</td><td>Add <code>"use client"</code> at the top of the file</td></tr>
+      <tr><td>Server Action not running</td><td>Check the <code>"use server"</code> directive</td></tr>
+      <tr><td>Build fails, dev works</td><td>Missing env vars, or server-only code in a static page</td></tr>
+    </table>
+  </div>
+  <div class="card-light">
+    <div class="card-title">Keep these open</div>
+    <ul>
+      <li>Course repo — <code>github.com/EnkrateiaLucca/cursor-course</code></li>
+      <li>Cursor docs — <code>docs.cursor.com</code></li>
+      <li>McKay's App Template — <code>github.com/mckaywrigley/mckays-app-template</code></li>
+      <li>MCP servers — <code>github.com/modelcontextprotocol/servers</code></li>
+      <li>GitMCP — <code>gitmcp.io</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="key-points">
+  <div class="key-points-title">Remember</div>
+  <ol>
+    <li><strong>Context is king</strong> — strategic @-mentions, clean project structure</li>
+    <li><strong>Explore → Plan → Build</strong> — don't skip the first two</li>
+    <li><strong>Rules encode your standards</strong> — add them only when mistakes repeat</li>
+    <li><strong>MCP extends Cursor's reach</strong> — GitHub, Figma, docs, databases</li>
+    <li><strong>Git discipline is non-negotiable</strong> — commit early, commit often</li>
+    <li><strong>Try 5 times</strong> — rephrase and retry before giving up on a prompt</li>
+    <li><strong>Production-ready</strong> means tests, CI/CD, monitoring and security</li>
+    <li><strong>Cursor augments your judgment</strong> — it doesn't replace it</li>
+  </ol>
+</div>
+
+<footer>
+  <span>Rapidly Build and Deploy a Full-Stack App with Cursor · Lucas Soares · O'Reilly Live Training</span>
+  <span>© 2026 Automata Learning Lab</span>
+</footer>
+
+</body>
+</html>
